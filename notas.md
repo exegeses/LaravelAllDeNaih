@@ -30,3 +30,16 @@
 - [ ] Styde https://styde.net/ 
 - [ ] Laravel News https://laravel-news.com/
 
+
+## Instalación
+> Usando composer vamos a movernos al directorio de trabajo    
+> En ese directorio vamos a crear un proyecto (carpeta con toda la magia de laravel) .  
+> Con el comando "cd" nos movemos a nuestro directorio de trabajo    
+> y luego, con el comando "composer create-project" crearemos un proyecto     
+
+`composer create-project laravel/laravel nombre "version"`
+
+
+> Ejemplo para instalar laravel 6x    
+`composer create-project laravel/laravel proyecto "6.*"`
+
