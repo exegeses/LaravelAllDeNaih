@@ -14,3 +14,13 @@
 Route::get('/', function () {
     return view('welcome');
 });
+
+// Route::get('petición', 'proceso/acción');
+
+Route::get('/mandarina', function() {
+    return 'Hola mundo desde laravel: (pediste una mandarina!)';
+});
+
+Route::get('/test', function() {
+    return view('prueba');
+});
