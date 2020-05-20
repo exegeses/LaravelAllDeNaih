@@ -24,3 +24,7 @@ Route::get('/mandarina', function() {
 Route::get('/test', function() {
     return view('prueba');
 });
+
+Route::get( '/inicio', function (){
+    return view('inicio');
+});
