@@ -1,6 +1,6 @@
 
-    <footer class="bg-dark fixed-bottom text-light p-4">
-        este es el footer
+    <footer class="bg-dark fixed-bottom text-light text-center p-4">
+        (ɔ) 2020 - Pandemic Warriors -
     </footer>
 
 
