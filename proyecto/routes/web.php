@@ -41,3 +41,11 @@ Route::get( '/procesar', function(){
                 ]
             );
 } );
+
+Route::get( '/form', function(){
+    return view('formulario');
+} );
+Route::post('/proceso', function(){
+   $nombre = $_POST['nombre'];
+   return view('proceso', [ 'nombre'=>$nombre ] );
+});
