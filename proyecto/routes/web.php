@@ -49,3 +49,8 @@ Route::post('/proceso', function(){
    $nombre = $_POST['nombre'];
    return view('proceso', [ 'nombre'=>$nombre ] );
 });
+
+Route::get('/parametro/{id}', function($id){
+
+    return view('parametro', ['id'=>$id]);
+});
