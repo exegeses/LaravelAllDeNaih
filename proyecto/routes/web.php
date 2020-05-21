@@ -28,3 +28,16 @@ Route::get('/test', function() {
 Route::get( '/inicio', function (){
     return view('inicio');
 });
+Route::get( '/procesar', function(){
+
+    $nombre = 'marcos';
+    $numero = 7;
+
+    ## pasar datos a la vista
+    return view('procesar',
+                [
+                    'nombre' => $nombre,
+                    'numero' => $numero
+                ]
+            );
+} );
