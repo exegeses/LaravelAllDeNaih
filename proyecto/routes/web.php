@@ -54,3 +54,16 @@ Route::get('/parametro/{id}', function($id){
 
     return view('parametro', ['id'=>$id]);
 });
+
+############ RAW SQL
+Route::get('/regiones', function(){
+    //listado de regiones
+    $regiones = DB::select('SELECT regID, regNombre FROM regiones');
+    return view('listaRegiones', [ 'regiones'=>$regiones ] );
+});
+############################
+## CRUD REGIONES
+Route::get('/adminRegiones', function(){
+    $regiones = DB::select('SELECT regID, regNombre FROM regiones');
+    return view('adminRegiones', [ 'regiones'=>$regiones ] );
+});
