@@ -10,7 +10,7 @@
                     <th>id</th>
                     <th>Región</th>
                     <th colspan="2">
-                        <a href="" class="btn btn-secondary">
+                        <a href="/formAgregarRegion" class="btn btn-secondary">
                             Agregar
                         </a>
                     </th>
