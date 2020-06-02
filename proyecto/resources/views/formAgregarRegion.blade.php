@@ -6,6 +6,7 @@
 
         <div class="alert alert-secondary p-3">
             <form action="/agregarRegion" method="post">
+                @csrf
                 Región: <br>
                 <input type="text" name="regNombre" class="form-control">
                 <br>
