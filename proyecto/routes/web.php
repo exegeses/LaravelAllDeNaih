@@ -78,5 +78,6 @@ Route::post('/agregarRegion', function(){
                             ( ':regNombre' )",
                         [ $regNombre ]
                 );
-    return redirect('/adminRegiones');
+    return redirect('/adminRegiones')
+                ->with('mensaje', 'Region '.$regNombre.' agregada correctamente');
 });
