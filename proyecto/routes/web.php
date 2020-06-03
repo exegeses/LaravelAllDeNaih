@@ -104,3 +104,16 @@ Route::get('/formAgregarDestino', function(){
 
     return view('formAgregarDestino', [ 'regiones'=>$regiones ]);
 });
+Route::post('/agregarDestino', function (){
+    DB::table('destinos')->insert(
+                        [
+                            'destNombre'=>$_POST['destNombre'],
+                            'destPrecio'=>$_POST['destPrecio'],
+                            'regID'=>$_POST['regID'],
+                            'destAsientos'=>$_POST['destAsientos'],
+                            'destDisponibles'=>$_POST['destDisponibles']
+                        ]
+                    );
+    return redirect('/adminDestinos')
+                ->with('mensaje', 'Destino '.$_POST['destNombre'].' agregado correctamente.');
+});
