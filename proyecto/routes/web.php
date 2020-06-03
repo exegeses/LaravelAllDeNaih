@@ -96,3 +96,11 @@ Route::get('/adminDestinos', function (){
 
     return view('adminDestinos', [ 'destinos'=>$destinos]);
 });
+
+Route::get('/formAgregarDestino', function(){
+    $regiones = DB::table('regiones')
+                    ->select('regID', 'regNombre')
+                        ->get();
+
+    return view('formAgregarDestino', [ 'regiones'=>$regiones ]);
+});
