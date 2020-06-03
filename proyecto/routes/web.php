@@ -81,3 +81,10 @@ Route::post('/agregarRegion', function(){
     return redirect('/adminRegiones')
                 ->with('mensaje', 'Region '.$regNombre.' agregada correctamente');
 });
+Route::get('/adminDestinos', function (){
+    $destinos = DB::select('
+                            SELECT destID, destNombre, destPrecio, regID
+                                FROM destinos'
+                            );
+    return view('adminDestinos', [ 'destinos'=>$destinos]);
+});
