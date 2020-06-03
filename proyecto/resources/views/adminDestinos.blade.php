@@ -30,7 +30,7 @@
                     <td>{{ $destino->destID }}</td>
                     <td>{{ $destino->destNombre }}</td>
                     <td>{{ $destino->destPrecio }}</td>
-                    <td>{{ $destino->regID }}</td>
+                    <td>{{ $destino->regNombre }}</td>
                     <td>
                         <a href="" class="btn btn-outline-secondary">
                             Modificar

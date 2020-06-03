@@ -82,9 +82,17 @@ Route::post('/agregarRegion', function(){
                 ->with('mensaje', 'Region '.$regNombre.' agregada correctamente');
 });
 Route::get('/adminDestinos', function (){
-    $destinos = DB::select('
-                            SELECT destID, destNombre, destPrecio, regID
-                                FROM destinos'
+
+/*    $destinos = DB::select('
+                            SELECT destID, destNombre, destPrecio,
+                                    d.regID, regNombre
+                                FROM destinos d, regiones r
+                                WHERE d.regID = r.regID'
                             );
+ */
+    $destinos = DB::table('destinos as d')
+                ->join( 'regiones as r', 'd.regID', '=', 'r.regID' )
+                    ->get();
+
     return view('adminDestinos', [ 'destinos'=>$destinos]);
 });
