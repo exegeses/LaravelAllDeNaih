@@ -33,6 +33,9 @@
             <button class="btn btn-dark">
                 Agregar destino
             </button>
+            <a href="/adminDestinos" class="btn btn-outline-secondary">
+                volver a panel
+            </a>
         </form>
         </div>
 

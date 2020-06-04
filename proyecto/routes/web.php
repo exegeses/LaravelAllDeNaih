@@ -117,3 +117,7 @@ Route::post('/agregarDestino', function (){
     return redirect('/adminDestinos')
                 ->with('mensaje', 'Destino '.$_POST['destNombre'].' agregado correctamente.');
 });
+Route::get('/formModificarRegion/{regID}', function($regID){
+
+    return view('formModificarRegion');
+});
