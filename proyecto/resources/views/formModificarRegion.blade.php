@@ -8,7 +8,8 @@
             <form action="/modificarRegion" method="post">
                 @csrf
                 Región: <br>
-                <input type="text" name="regNombre" class="form-control">
+                <input type="text" value="{{ $region->regNombre }}" name="regNombre" class="form-control">
+                <input type="hidden" value="{{ $region->regID }}" name="regiID">
                 <br>
                 <button class="btn btn-dark">Modificar región</button>
                 <a href="/adminRegiones" class="btn btn-outline-secondary">

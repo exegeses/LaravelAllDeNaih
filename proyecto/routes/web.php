@@ -118,6 +118,19 @@ Route::post('/agregarDestino', function (){
                 ->with('mensaje', 'Destino '.$_POST['destNombre'].' agregado correctamente.');
 });
 Route::get('/formModificarRegion/{regID}', function($regID){
+    $Region = DB::table('regiones')
+                    ->select('regID', 'regNombre')
+                    ->where('regID', $regID)
+                    ->first();
 
-    return view('formModificarRegion');
+    return view('formModificarRegion',['region'=>$Region]);
+});
+Route::post('/modificarRegion', function(){
+    $regID = $_POST['regID'];
+    $regNombre = $_POST['regNombre'];
+    DB::table('regiones')
+            ->where('regID', $regID)
+            ->update([ 'regNombre'=>$regNombre ]);
+    return redirect('/adminDestinos')
+        ->with('mensaje', 'Destino '.$_POST['destNombre'].' modificado correctamente.');
 });
