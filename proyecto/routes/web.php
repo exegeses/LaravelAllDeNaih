@@ -81,6 +81,28 @@ Route::post('/agregarRegion', function(){
     return redirect('/adminRegiones')
                 ->with('mensaje', 'Region '.$regNombre.' agregada correctamente');
 });
+
+Route::get('/formModificarRegion/{regID}', function($regID){
+    $Region = DB::table('regiones')
+        ->select('regID', 'regNombre')
+        ->where('regID', $regID)
+        ->first();  // funciona como el fetch()
+        //->get(); // funciona como el fetchAll()
+
+    return view('formModificarRegion',['region'=>$Region]);
+});
+Route::post('/modificarRegion', function(){
+    $regID = $_POST['regID'];
+    $regNombre = $_POST['regNombre'];
+    DB::table('regiones')
+        ->where('regID', $regID)
+        ->update([ 'regNombre'=>$regNombre ]);
+    return redirect('/adminDestinos')
+        ->with('mensaje', 'Destino '.$_POST['destNombre'].' modificado correctamente.');
+});
+
+############################
+## CRUD DESTINOS
 Route::get('/adminDestinos', function (){
 
 /*    $destinos = DB::select('
@@ -117,20 +139,22 @@ Route::post('/agregarDestino', function (){
     return redirect('/adminDestinos')
                 ->with('mensaje', 'Destino '.$_POST['destNombre'].' agregado correctamente.');
 });
-Route::get('/formModificarRegion/{regID}', function($regID){
-    $Region = DB::table('regiones')
-                    ->select('regID', 'regNombre')
-                    ->where('regID', $regID)
-                    ->first();
 
-    return view('formModificarRegion',['region'=>$Region]);
-});
-Route::post('/modificarRegion', function(){
-    $regID = $_POST['regID'];
-    $regNombre = $_POST['regNombre'];
-    DB::table('regiones')
-            ->where('regID', $regID)
-            ->update([ 'regNombre'=>$regNombre ]);
-    return redirect('/adminDestinos')
-        ->with('mensaje', 'Destino '.$_POST['destNombre'].' modificado correctamente.');
+Route::get('/formModificarDestino/{destID}', function($destID){
+
+    #obtenemos datos de 1 destino por su ID
+    $destino = DB::table('destinos as d')
+                    ->join( 'regiones as r', 'd.regID', '=', 'r.regID' )
+                    ->where('destID', $destID)
+                    //->get();
+                    ->first();
+    #obtenemos el listado de regiones para el combo
+    $regiones = DB::table('regiones')->get();
+    #retornamos vista pasandols datos
+    return view('formModificarDestino',
+                    [
+                     'destino'=>$destino,
+                     'regiones'=>$regiones
+                    ]
+                );
 });
