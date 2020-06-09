@@ -158,3 +158,21 @@ Route::get('/formModificarDestino/{destID}', function($destID){
                     ]
                 );
 });
+Route::post('/modificarDestino', function(){
+    ## capturamos datos enviados por el form
+    $destNombre = $_POST['destNombre'];
+    $destID = $_POST['destID'];
+    DB::table('destinos')
+        ->where('destID', $destID)
+        ->update(
+            [
+                'destNombre'=>$_POST['destNombre'],
+                'destPrecio'=>$_POST['destPrecio'],
+                'regID'=>$_POST['regID'],
+                'destAsientos'=>$_POST['destAsientos'],
+                'destDisponibles'=>$_POST['destDisponibles']
+            ]
+        );
+    return redirect('/adminDestinos')
+                ->with('mensaje', 'Destino '.$destNombre.' modificado correctemente');
+});
