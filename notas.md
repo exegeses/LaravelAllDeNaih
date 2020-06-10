@@ -62,4 +62,18 @@
   
     cd directorio
 
->Clonar el proyecto existente
+>Clonar el proyecto existente con el comando git clone  
+
+    git clone https://github.com/exegeses/LaravelAllDeNaih.git
+    
+>Descargar el directorio Vendor y otros componentes de laravel que no descargaron del proyecto original usamos el comando composer update  
+
+    composer update  
+    
+>Crear el archivo de configuración ".env", ya que este no descargó del proyecto clonado.   
+>Simplemente se renombra el archivo ".env.example" a ".env"  
+
+>Generar la key del proyecto con el comando key:generate  
+
+    php artisan key:generate   
+    
