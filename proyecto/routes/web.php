@@ -97,8 +97,8 @@ Route::post('/modificarRegion', function(){
     DB::table('regiones')
         ->where('regID', $regID)
         ->update([ 'regNombre'=>$regNombre ]);
-    return redirect('/adminDestinos')
-        ->with('mensaje', 'Destino '.$_POST['destNombre'].' modificado correctamente.');
+    return redirect('/adminRegiones')
+        ->with('mensaje', 'Región '.$_POST['destNombre'].' modificada correctamente.');
 });
 
 ############################

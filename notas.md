@@ -5,6 +5,7 @@
 3. Recursos
 4. Instalación
 5. Iniciar el server
+6. Actualizar desde un proyecto hecho
 
 ## Definición
 > Laravel es uno de los frameworks de código abierto más fáciles de asimilar para PHP.  El objetivo de Laravel es el de ser un framework que permita el uso de una sintaxis refinada y expresiva para crear código de forma sencilla, evitando el “código espagueti” y permitiendo multitud de funcionalidades.  Aprovecha todo lo bueno de otros frameworks y utiliza las características de las últimas versiones de PHP.  Fue creado en 2011 por Taylor Otwell y tiene una gran influencia de frameworks como Ruby on Rails, Sinatra y ASP.NET MVC.  
@@ -55,3 +56,10 @@
 
 `php artisan serve `
 
+## Actualizar desde un proyecto hecho
+
+>Moverse al directorio de trabajo
+  
+    cd directorio
+
+>Clonar el proyecto existente
