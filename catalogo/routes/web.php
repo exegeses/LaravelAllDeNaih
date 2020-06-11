@@ -14,3 +14,8 @@
 Route::get('/', function () {
     return view('welcome');
 });
+
+############################
+##  CRUD de Categorías
+Route::get('/adminCategorias', 'CategoriaController@index');
+
