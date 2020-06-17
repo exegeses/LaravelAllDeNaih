@@ -2,7 +2,7 @@
 
     @section('contenido')
 
-        <h1>Panel de administración de categorias</h1>
+        <h1>Panel de administración de marcas</h1>
 
         @if ( session('mensaje') )
             <div class="alert alert-success">
@@ -14,31 +14,32 @@
             <thead class="thead-dark">
                 <tr>
                     <th>#</th>
-                    <th>Categoría</th>
+                    <th>Marca</th>
                     <th colspan="2">
-                        <a href="/agregarCategoria" class="btn btn-dark">
+                        <a href="/agregarMarca" class="btn btn-dark">
                             Agregar
                         </a>
                     </th>
                 </tr>
             </thead>
             <tbody>
-        @foreach( $categorias as $categoria )
+
                 <tr>
-                    <td>{{ $categoria->idCategoria }}</td>
-                    <td>{{ $categoria->catNombre }}</td>
+                    <td>#</td>
+                    <td>marca</td>
                     <td>
-                        <a href="/modificarCategoria" class="btn btn-outline-secondary">
+                        <a href="/modificarMarca" class="btn btn-outline-secondary">
                             Modificar
                         </a>
                     </td>
                     <td>
-                        <a href="/eliminarCategoria" class="btn btn-outline-secondary">
+                        <a href="/eliminarMarca" class="btn btn-outline-secondary">
                             Eliminar
                         </a>
                     </td>
                 </tr>
-        @endforeach
+
+
             </tbody>
         </table>
 
