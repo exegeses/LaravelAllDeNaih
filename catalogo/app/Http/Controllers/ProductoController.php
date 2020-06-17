@@ -2,10 +2,10 @@
 
 namespace App\Http\Controllers;
 
-use App\Marca;
+use App\Producto;
 use Illuminate\Http\Request;
 
-class MarcaController extends Controller
+class ProductoController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -14,8 +14,7 @@ class MarcaController extends Controller
      */
     public function index()
     {
-        $marcas = Marca::paginate(7);
-        return view('adminMarcas', [ 'marcas'=>$marcas ]);
+        //
     }
 
     /**
@@ -42,10 +41,10 @@ class MarcaController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  \App\Marca  $marca
+     * @param  \App\Producto  $producto
      * @return \Illuminate\Http\Response
      */
-    public function show(Marca $marca)
+    public function show(Producto $producto)
     {
         //
     }
@@ -53,10 +52,10 @@ class MarcaController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Marca  $marca
+     * @param  \App\Producto  $producto
      * @return \Illuminate\Http\Response
      */
-    public function edit(Marca $marca)
+    public function edit(Producto $producto)
     {
         //
     }
@@ -65,10 +64,10 @@ class MarcaController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Marca  $marca
+     * @param  \App\Producto  $producto
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Marca $marca)
+    public function update(Request $request, Producto $producto)
     {
         //
     }
@@ -76,10 +75,10 @@ class MarcaController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Marca  $marca
+     * @param  \App\Producto  $producto
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Marca $marca)
+    public function destroy(Producto $producto)
     {
         //
     }

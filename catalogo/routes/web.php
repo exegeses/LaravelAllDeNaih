@@ -21,4 +21,4 @@ Route::get('/adminCategorias', 'CategoriaController@index');
 
 ############################
 ##  CRUD de Marcas
-Route::get('/adminMarcas', 'MarcasController@index');
+Route::get('/adminMarcas', 'MarcaController@index');
