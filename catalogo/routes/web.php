@@ -18,6 +18,7 @@ Route::get('/', function () {
 ############################
 ##  CRUD de Categorías
 Route::get('/adminCategorias', 'CategoriaController@index');
+Route::get('/agregarCategoria', 'CategoriaController@create');
 
 ############################
 ##  CRUD de Marcas
