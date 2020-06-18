@@ -37,7 +37,18 @@ class CategoriaController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        //validar
+        //$request->input('catNombre');
+
+        $request->validate(
+                        [
+                            'catNombre'=>'required|min:3|max:50',
+                            'email'=>'required|email'
+                        ]
+                    );
+        //guardar
+        return 'validó';
+        //retornar magia con mensage
     }
 
     /**
