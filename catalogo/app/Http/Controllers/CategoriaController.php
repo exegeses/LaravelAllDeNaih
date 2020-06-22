@@ -52,7 +52,7 @@ class CategoriaController extends Controller
 
         //retornar magia con mensage
         return redirect('/adminCategorias')
-                    ->with('mensaje', 'Cayegoría: '.$catNombre. ' agregada correctamente.');
+                    ->with('mensaje', 'Categoría: '.$catNombre. ' agregada correctamente.');
     }
 
     /**
@@ -74,7 +74,8 @@ class CategoriaController extends Controller
      */
     public function edit($id)
     {
-        //
+        $Categoria = Categoria::find($id);
+        return view('modificarCategoria', [ 'categoria'=>$Categoria ] );
     }
 
     /**
@@ -84,9 +85,26 @@ class CategoriaController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request)
     {
-        //
+        //validación
+        $catNombre = $request->input('catNombre');
+
+        $request->validate(
+            [
+                'catNombre'=>'required|min:3|max:50'
+            ]
+        );
+        //obtenemos datos de la categoría enviada
+        $Categoria = Categoria::find($request->input('idCategoria'));
+        //asignamos atributos
+        $Categoria->catNombre = $catNombre;
+        //guardamos
+        $Categoria->save();
+        //retornar magia con mensage
+        return redirect('/adminCategorias')
+            ->with('mensaje', 'Categoría: '.$catNombre. ' modificada correctamente.');
+
     }
 
     /**
