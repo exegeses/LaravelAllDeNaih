@@ -38,17 +38,21 @@ class CategoriaController extends Controller
     public function store(Request $request)
     {
         //validar
-        //$request->input('catNombre');
+        $catNombre = $request->input('catNombre');
 
         $request->validate(
                         [
-                            'catNombre'=>'required|min:3|max:50',
-                            'email'=>'required|email'
+                            'catNombre'=>'required|min:3|max:50'
                         ]
                     );
         //guardar
-        return 'validó';
+        $Categoria = new Categoria;
+        $Categoria->catNombre = $catNombre;
+        $Categoria->save();
+
         //retornar magia con mensage
+        return redirect('/adminCategorias')
+                    ->with('mensaje', 'Cayegoría: '.$catNombre. ' agregada correctamente.');
     }
 
     /**
