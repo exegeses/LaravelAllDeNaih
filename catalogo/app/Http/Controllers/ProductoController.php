@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use App\Categoria;
+use App\Marca;
 use App\Producto;
 use Illuminate\Http\Request;
 
@@ -26,7 +28,15 @@ class ProductoController extends Controller
      */
     public function create()
     {
-        //
+        //listados de marcas y de categorías
+        $marcas = Marca::all();
+        $categorias = Categoria::all();
+        return view('agregarProducto',
+                    [
+                        'marcas'=>$marcas,
+                        'categorias'=>$categorias
+                    ]
+                );
     }
 
     /**
@@ -37,7 +47,17 @@ class ProductoController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        //validación
+        $request->validate(
+                    [
+                        'prdNombre'=>'required|min:5|max:70',
+                        'prdPrecio'=>'required|numeric|min:0',
+                        'prdPresentacion'=>'required|min:3|max:150',
+                        'prdStocj'=>'required|integer|min:1',
+                        'prdImagen'=>'mimes:jpg,jpeg,png,gif,svg|max:2048'
+                    ]
+        );
+        return 'pasó la validación';
     }
 
     /**

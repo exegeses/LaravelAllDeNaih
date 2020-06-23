@@ -30,3 +30,5 @@ Route::get('/adminMarcas', 'MarcaController@index');
 ############################
 ##  CRUD de Productos
 Route::get('/adminProductos', 'ProductoController@index');
+Route::get('/agregarProducto', 'ProductoController@create');
+Route::post('/agregarProducto', 'ProductoController@store');
