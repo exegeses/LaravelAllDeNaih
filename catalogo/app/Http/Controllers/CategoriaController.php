@@ -15,7 +15,7 @@ class CategoriaController extends Controller
     public function index()
     {
         //DB::table('categorias')->get()
-        $categorias = Categoria::all();
+        $categorias = Categoria::paginate(7);
         return view('adminCategorias', [ 'categorias'=>$categorias ]);
     }
 
@@ -104,7 +104,6 @@ class CategoriaController extends Controller
         //retornar magia con mensage
         return redirect('/adminCategorias')
             ->with('mensaje', 'Categoría: '.$catNombre. ' modificada correctamente.');
-
     }
 
     /**
