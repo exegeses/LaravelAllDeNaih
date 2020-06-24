@@ -41,7 +41,7 @@ class ProductoController extends Controller
 
     public function subirImagen( Request $request )
     {
-        //imagen predeterminada si NO enviaron nada
+        //* imagen predeterminada si NO enviaron nada *
         $prdImagen = 'noDisponible.jpg';
 
         //si enviaron archivo
@@ -87,13 +87,22 @@ class ProductoController extends Controller
 
         //subir archivo de imagen * y retornar el nombre de archivo
         $prdImagen = $this->subirImagen( $request );
+        $prdNombre = $request->input('prdNombre');
 
         //instanciar y asignar atributos
-
+        $Producto = new Producto;
+        $Producto->prdNombre = $prdNombre;
+        $Producto->prdPrecio = $request->input('prdPrecio');
+        $Producto->idMarca = $request->input('idMarca');
+        $Producto->idCategoria = $request->input('idCategoria');
+        $Producto->prdPresentacion = $request->input('prdPresentacion');
+        $Producto->prdStock = $request->input('prdStock');
+        $Producto->prdImagen = $prdImagen;
         //guardar
-
+        $Producto->save();
         //retornar redirección y mostrar mensaje
-        return 'pasó la validación y subió: '.$prdImagen;
+        return redirect('/adminProductos')
+                ->with('mensaje', 'Producto: '.$prdNombre. ' agregado correctamente.');
     }
 
     /**
