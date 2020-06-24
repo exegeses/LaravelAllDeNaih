@@ -39,6 +39,24 @@ class ProductoController extends Controller
                 );
     }
 
+    public function subirImagen( Request $request )
+    {
+        //imagen predeterminada si NO enviaron nada
+        $prdImagen = 'noDisponible.jpg';
+
+        //si enviaron archivo
+        if( $request->file('prdImagen') ){
+            // nombre del archivo
+                #time().extension
+            $prdImagen = time().'.'.$request->file('prdImagen')->clientExtension();
+            //subir archivo move()
+            $request->file('prdImagen')
+                    ->move( public_path( 'productos/' ), $prdImagen );
+        }
+
+        return $prdImagen;
+    }
+
     /**
      * Store a newly created resource in storage.
      *
@@ -66,7 +84,16 @@ class ProductoController extends Controller
                         'prdPresentacion.required'=>'Complete el campo Presentación'
                     ]
         );
-        return 'pasó la validación';
+
+        //subir archivo de imagen * y retornar el nombre de archivo
+        $prdImagen = $this->subirImagen( $request );
+
+        //instanciar y asignar atributos
+
+        //guardar
+
+        //retornar redirección y mostrar mensaje
+        return 'pasó la validación y subió: '.$prdImagen;
     }
 
     /**
