@@ -53,8 +53,17 @@ class ProductoController extends Controller
                         'prdNombre'=>'required|min:5|max:70',
                         'prdPrecio'=>'required|numeric|min:0',
                         'prdPresentacion'=>'required|min:3|max:150',
-                        'prdStocj'=>'required|integer|min:1',
+                        'prdStock'=>'required|integer|min:1',
                         'prdImagen'=>'mimes:jpg,jpeg,png,gif,svg|max:2048'
+                    ],
+                    [
+                        'prdNombre.required'=>'Complete el campo Nombre',
+                        'prdNombre.min'=>'Complete el campo Nombre con al menos 5 caractéres',
+                        'prdNombre.max'=>'Complete el campo Nombre con 70 caractérescomo máxino',
+                        'prdPrecio.required'=>'Complete el campo Precio',
+                        'prdPrecio.numeric'=>'Complete el campo Precio con un número',
+                        'prdPrecio.numeric'=>'Complete el campo Precio con un número positivo',
+                        'prdPresentacion.required'=>'Complete el campo Presentación'
                     ]
         );
         return 'pasó la validación';
