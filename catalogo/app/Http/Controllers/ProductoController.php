@@ -122,9 +122,21 @@ class ProductoController extends Controller
      * @param  \App\Producto  $producto
      * @return \Illuminate\Http\Response
      */
-    public function edit(Producto $producto)
+    public function edit($id)
     {
-        //
+        //obtenemos producto
+        $Producto = Producto::with('relMarca', 'relCategoria')->find($id);
+        // obtener listado de marcas y de categorías
+        $marcas = Marca::all();
+        $categorias = Categoria::all();
+        //retornamos vista con los datos
+        return view('modificarProducto',
+                    [
+                        'producto'=>$Producto,
+                        'marcas'=>$marcas,
+                        'categorias'=>$categorias
+                    ]
+        );
     }
 
     /**
