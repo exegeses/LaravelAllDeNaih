@@ -77,11 +77,18 @@ class ProductoController extends Controller
                     [
                         'prdNombre.required'=>'Complete el campo Nombre',
                         'prdNombre.min'=>'Complete el campo Nombre con al menos 5 caractéres',
-                        'prdNombre.max'=>'Complete el campo Nombre con 70 caractérescomo máxino',
+                        'prdNombre.max'=>'Complete el campo Nombre con 70 caractéres como máxino',
                         'prdPrecio.required'=>'Complete el campo Precio',
                         'prdPrecio.numeric'=>'Complete el campo Precio con un número',
-                        'prdPrecio.numeric'=>'Complete el campo Precio con un número positivo',
-                        'prdPresentacion.required'=>'Complete el campo Presentación'
+                        'prdPrecio.min'=>'Complete el campo Precio con un número positivo',
+                        'prdPresentacion.required'=>'Complete el campo Presentación',
+                        'prdPresentacion.min'=>'Complete el campo Presentación con al menos 3 caractéres',
+                        'prdPresentacion.max'=>'Complete el campo Presentación con 150 caractérescomo máxino',
+                        'prdStock.required'=>'Complete el campo Stock',
+                        'prdStock.integer'=>'Complete el campo Stock con un número entero',
+                        'prdStock.min'=>'Complete el campo Stock con un número positivo',
+                        'prdImagen.mimes'=>'Debe ser una imagen',
+                        'prdImagen.max'=>'Debe ser una imagen de 2MB como máximo'
                     ]
         );
 
